@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$theahotel-primary: mat.define-palette(mat.$teal-palette, 200);
+$theahotel-accent: mat.define-palette(mat.$green-palette, 100);
+
+$theahotel: mat.define-light-theme((
+  color: (
+    primary: $theahotel-primary,
+    accent: $theahotel-accent,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.all-component-themes($theahotel);
+
+.navtabs-container {
+  background-color: mat.get-color-from-palette($theahotel-accent);
+}
