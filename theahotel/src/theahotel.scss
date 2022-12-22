@@ -2,8 +2,79 @@
 
 @include mat.core();
 
-$theahotel-primary: mat.define-palette(mat.$teal-palette, 200);
-$theahotel-accent: mat.define-palette(mat.$green-palette, 100);
+$thea-primary: (
+  '50': 'e5f4f3',
+  '100': 'bee4e1',
+  '200': '93d3cd',
+  '300': '67c1b8',
+  '400': '47b3a9',
+  '500': '26a69a',
+  '600': '229e92',
+  '700': '1c9588',
+  '800': '178b7e',
+  '900': '0d7b6c',
+  'A100': 'adfff3',
+  'A200': '7affec',
+  'A400': '47ffe4',
+  'A700': '2dffe0',
+  'contrastDefaultColor': 'light',
+  'contrastDarkColors': [
+    '50',
+    '100',
+    '200',
+    '300',
+    '400',
+    'A100',
+    'A200',
+    'A400',
+    'A700'
+    ],
+  'contrastLightColors': [
+    '500',
+    '600',
+    '700',
+    '800',
+    '900'
+    ]
+);
+
+$thea-accent: (
+  50: #fefbed,
+  100: #fcf5d1,
+  200: #fbefb3,
+  300: #f9e995,
+  400: #f7e47e,
+  500: #f6df67,
+  600: #f5db5f,
+  700: #f3d754,
+  800: #f2d24a,
+  900: #efca39,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #fff6d3,
+  A700: #fff0b9,
+  'contrastDefaultColor': 'light',
+  'contrastDarkColors': [
+    50,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    A100,
+    A200,
+    A400,
+    A700
+  ],
+  'contrastLightColors': []
+);
+
+$theahotel-primary: mat.define-palette(mat.$teal-palette, 500, 300, 900);
+$theahotel-accent: mat.define-palette(mat.$amber-palette, 500, 400, 700);
 
 $theahotel: mat.define-light-theme((
   color: (
@@ -17,5 +88,14 @@ $theahotel: mat.define-light-theme((
 @include mat.all-component-themes($theahotel);
 
 .navtabs-container {
-  background-color: mat.get-color-from-palette($theahotel-accent);
+  background-color: mat.get-color-from-palette($thea-primary, 500);
 }
+
+.mat-list-option:hover,
+.mat-list-option.mat-list-item-focus,
+.mat-nav-list .mat-list-item:hover,
+.mat-nav-list .mat-list-item.mat-list-item-focus {
+  background-color: mat.get-color-from-palette($thea-primary, 300);
+  color: mat.get-color-from-palette($thea-primary, 900);
+}
+
